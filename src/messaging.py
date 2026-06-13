@@ -51,7 +51,7 @@ class Bus:
         self._round += 1
         if self.verbose:
             tag = f" {label}" if label else ""
-            print(f"\n──────── Runde {self._round}{tag} ────────")
+            print(f"\n-------- Runde {self._round}{tag} --------")
 
     def send(self, msg: Message) -> None:
         self.log.append(msg)
@@ -61,7 +61,7 @@ class Bus:
     def note(self, text: str) -> None:
         """Erläuternde Log-Zeile (keine Agentennachricht)."""
         if self.verbose:
-            print(f"  · {text}")
+            print(f"  - {text}")
 
     def count(self, performative: str | None = None) -> int:
         if performative is None:

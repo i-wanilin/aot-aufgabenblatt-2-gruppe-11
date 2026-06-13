@@ -62,7 +62,7 @@ def run(world: World, verbose: bool = True, max_rounds: int = 30) -> Result:
     ]
 
     if verbose:
-        print(f"=== eCNP · Welt '{world.name}' ===")
+        print(f"=== eCNP - Welt '{world.name}' ===")
         print(f"Angebot {world.supply()} | Nachfrage {world.demand()} | "
               f"Strafe {world.penalty:g}/Item")
         print(f"{len(instances)} parallele Protokollinstanzen gestartet")
@@ -72,7 +72,7 @@ def run(world: World, verbose: bool = True, max_rounds: int = 30) -> Result:
         # Gibt es überhaupt noch ein Item, das ein TA braucht und das verfügbar ist?
         live = [i for i in open_instances if any(ta.needs(i.item_type) for ta in tas)]
         if not live:
-            bus.note("keine offenen, benötigten Instanzen mehr -> Ende")
+            bus.note("keine offenen, benoetigten Instanzen mehr -> Ende")
             break
         bus.round("(eCNP)")
 

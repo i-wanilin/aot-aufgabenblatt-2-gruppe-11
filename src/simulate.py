@@ -39,16 +39,16 @@ def main() -> int:
     results = []
     for run in runners:
         res = run(world, verbose=verbose)
-        print("─" * 48)
+        print("-" * 48)
         print(res.summary())
-        print("─" * 48)
+        print("-" * 48)
         results.append(res)
 
     if len(results) == 2:
         a, b = results
         print("\n### Vergleich CNP vs. eCNP ###")
         print(f"  Gesamtenergie  CNP={a.total_energy:.1f}  eCNP={b.total_energy:.1f}"
-              f"  Δ={a.total_energy - b.total_energy:+.1f}")
+              f"  Delta={a.total_energy - b.total_energy:+.1f}")
         print(f"  Nachrichten    CNP={a.messages}      eCNP={b.messages}")
     return 0
 

@@ -23,7 +23,7 @@ def run(world: World, verbose: bool = True, max_passes: int = 20) -> Result:
     stock = {w.id: dict(w.stock) for w in world.warehouses}
 
     if verbose:
-        print(f"=== CNP · Welt '{world.name}' ===")
+        print(f"=== CNP - Welt '{world.name}' ===")
         print(f"Angebot {world.supply()} | Nachfrage {world.demand()} | "
               f"Strafe {world.penalty:g}/Item")
 
@@ -66,7 +66,7 @@ def run(world: World, verbose: bool = True, max_passes: int = 20) -> Result:
                     bus.send(Message(REJECT, wh.id, loser.id, conv, {"item": item_type}))
 
         if not changed:
-            bus.note("keine Änderung -> Konvergenz")
+            bus.note("keine Aenderung -> Konvergenz")
             break
 
     if verbose:

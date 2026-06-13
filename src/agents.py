@@ -85,7 +85,7 @@ class Result:
         for ta_id, assign in sorted(self.routes.items()):
             order = " ".join(f"{t}->{w}" for t, w in sorted(assign.items())) or "(leer)"
             miss = self.unmet.get(ta_id, [])
-            tail = f"   UNERFÜLLT: {','.join(miss)}" if miss else ""
+            tail = f"   UNERFUELLT: {','.join(miss)}" if miss else ""
             lines.append(f"  {ta_id}: {order}{tail}")
         lines += [
             f"Fahrenergie    : {self.travel_energy:.1f}",
