@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Kooperative Transportlogistik – Weltkonfiguration",
+  "type": "object",
+  "required": ["warehouses", "centrals"],
+  "properties": {
+    "name": { "type": "string" },
+    "metric": { "enum": ["manhattan", "euclidean"] },
+    "penalty": { "type": "number", "minimum": 0 },
+    "grid_size": {
+      "type": "array",
+      "items": { "type": "integer", "minimum": 1 },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "warehouses": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "coord", "stock"],
+        "properties": {
+          "id": { "type": "string" },
+          "coord": {
+            "type": "array",
+            "items": { "type": "number" },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "stock": {
+            "type": "object",
+            "additionalProperties": { "type": "integer", "minimum": 0 },
+            "propertyNames": { "enum": ["A", "B", "C"] }
+          }
+        }
+      }
+    },
+    "centrals": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "coord", "order"],
+        "properties": {
+          "id": { "type": "string" },
+          "coord": {
+            "type": "array",
+            "items": { "type": "number" },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "order": {
+            "type": "array",
+            "items": { "enum": ["A", "B", "C"] },
+            "uniqueItems": true,
+            "minItems": 1
+          }
+        }
+      }
+    }
+  }
+}

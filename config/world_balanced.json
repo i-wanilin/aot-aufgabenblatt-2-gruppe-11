@@ -1,0 +1,18 @@
+{
+  "name": "balanced-9x9",
+  "metric": "manhattan",
+  "penalty": 100,
+  "grid_size": [9, 9],
+  "warehouses": [
+    { "id": "LA1", "coord": [1, 1], "stock": { "A": 1, "B": 1, "C": 1 } },
+    { "id": "LA2", "coord": [9, 1], "stock": { "A": 1, "B": 1, "C": 1 } },
+    { "id": "LA3", "coord": [1, 9], "stock": { "A": 1, "B": 1, "C": 1 } },
+    { "id": "LA4", "coord": [9, 9], "stock": { "A": 1, "B": 1, "C": 1 } }
+  ],
+  "centrals": [
+    { "id": "TA1", "coord": [1, 6], "order": ["A", "B", "C"] },
+    { "id": "TA2", "coord": [4, 9], "order": ["A", "B", "C"] },
+    { "id": "TA3", "coord": [9, 4], "order": ["A", "B", "C"] },
+    { "id": "TA4", "coord": [4, 1], "order": ["A", "B", "C"] }
+  ]
+}
